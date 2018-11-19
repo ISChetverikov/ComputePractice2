@@ -11,7 +11,7 @@
 using namespace std;
 
 template<class T>
-Matrix<T> Matrix<T>::operator *= (const T r) const {
+Matrix<T> Matrix<T>::operator * (const T r) const {
 	Matrix<T> res = Matrix<T>(*this);
 
 	for (int i = 0; i < this->m; i++)
@@ -107,14 +107,3 @@ Matrix<T> Matrix<T>::operator ^ (const Matrix<T> other) {
 
 	return res;
 }
-
-template<class T>
-Matrix<T> operator * (const T r, const Matrix<T>& matrix) {
-	return matrix *= r;
-}
-
-template<class T>
-Matrix<T> operator * (const Matrix<T>& matrix, const T r) {
-	return matrix *= r;
-}
-

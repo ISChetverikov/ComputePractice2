@@ -13,13 +13,11 @@ using namespace std;
 template<class T>
 string Matrix<T>::toString() const {
 	stringstream ss;
-	ss.fixed;
-	ss.precision(3);
 	for (int i = 0; i < m; i++)
 	{
 		for (int j = 0; j < n; j++)
 		{
-			ss << setw(6) << std::to_string(v[i][j]);
+			ss << setw(15) << setprecision(4) << fixed << v[i][j];
 		}
 
 		ss << "\n";

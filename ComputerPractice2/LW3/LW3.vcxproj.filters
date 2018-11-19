@@ -27,6 +27,12 @@
     <ClCompile Include="IO.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="DerivedMatrix.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DerivedMatrix.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.h">

@@ -24,13 +24,7 @@ Matrix<T>::Matrix(int m, int n, bool isRandomFill) {
 	if (!isRandomFill)
 		return;
 
-	for (int i = 0; i < m; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			v[i][j] = rand() % 100 - 50;
-		}
-	}
+	RandomFill();
 }
 
 template <class T>
@@ -47,14 +41,14 @@ Matrix<T>::Matrix(const Matrix<T> & other) {
 }
 
 template <class T>
-Matrix<T>::Matrix(int n, int m, T * coefs) {
-	v = vector<vector<T>>(n);
-	for (int i = 0; i < n; i++)
+Matrix<T>::Matrix(int m, int n, T * coefs) {
+	v = vector<vector<T>>(m);
+	for (int i = 0; i < m; i++)
 	{
-		v[i] = vector<T>(m);
-		for (int j = 0; j < m; j++)
+		v[i] = vector<T>(n);
+		for (int j = 0; j < n; j++)
 		{
-			v[i][j] = coefs[i*n + j];
+			v[i][j] = coefs[i*m + j];
 		}
 	}
 }
@@ -62,4 +56,15 @@ Matrix<T>::Matrix(int n, int m, T * coefs) {
 template <class T>
 Matrix<T>::~Matrix() {
 
+}
+
+template <class T>
+void Matrix<T>::RandomFill() {
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			v[i][j] = (T)(rand() % 10000) / 100;
+		}
+	}
 }

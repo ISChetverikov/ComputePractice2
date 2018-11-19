@@ -122,6 +122,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Operators.cpp" />
+    <ClCompile Include="DerivedMatrix.cpp" />
+    <ClCompile Include="DerivedMatrix.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exception.h" />
