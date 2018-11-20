@@ -14,6 +14,7 @@
 #include "Functions.cpp"
 #include "Vector.cpp"
 #include "VectorOperations.cpp"
+#include "VectorFunctions.cpp"
 
 using namespace std;
 
@@ -22,13 +23,13 @@ int main() {
 	//srand((int)time(0));
 
 	//Matrix<int> m = Matrix<int>(2, 3, true);
-	/*Matrix<double> n = Matrix<double>(3, 4, true);
-	SymmetricMatrix<double> u = SymmetricMatrix<double>(3, true);
-	SymmetricMatrix<double> v = SymmetricMatrix<double>(u);
+	Matrix<double> n = Matrix<double>(3, 4, true);
+	//SymmetricMatrix<double> u = SymmetricMatrix<double>(3, true);
+	//SymmetricMatrix<double> v = SymmetricMatrix<double>(u);
 	DiagonalMatrix<double> d = DiagonalMatrix<double>(3, true);
 	IdentityMatrix<double> e = IdentityMatrix<double>(3);
 	Column<double> c = Column<double>(3, true);
-	Row<double> r = Row<double>(3, true);*/
+	Row<double> r = Row<double>(3, true);
 
 	//cout << u << endl;
 	//cout << d << endl;
@@ -43,12 +44,13 @@ int main() {
 		cout << e.what() << endl;
 	}
 	*/
-	int a[3] = {1,2,3};
+	int a[3] = { 1,2,3 };
 	int b[3] = { 2,3,4 };
 
 	Vector<int> v = Vector<int>(3, a);
 	Vector<int> u = Vector<int>(3, b);
-	cout << (v ^ u) << endl;
+	cout << u << endl;
+	cout << (u.ToMatrix(true).Norm()) << endl;
 	return 0;
 }
 

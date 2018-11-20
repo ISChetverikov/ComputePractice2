@@ -126,6 +126,7 @@
     <ClCompile Include="DerivedMatrix.cpp" />
     <ClCompile Include="DerivedMatrix.h" />
     <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="VectorFunctions.cpp" />
     <ClCompile Include="VectorOperations.cpp" />
   </ItemGroup>
   <ItemGroup>

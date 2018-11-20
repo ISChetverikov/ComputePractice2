@@ -17,6 +17,8 @@ public:
 	void RandomFill();
 
 	Matrix<T> ToMatrix(bool isRaw) const;
+	double Norm2();
+	T NormMax();
 
 	T& operator [](int i);
 	const T& operator [](int i) const;
@@ -28,10 +30,11 @@ public:
 	T operator * (const Vector & other); // Scalar
 	Vector operator & (const Vector & other); // Hadamar
 	Matrix<T> operator ^ (const Vector & other); // External
+
 };
 
 template <class T>
-ostream & operator << (ostream & o, Vector<T> & vector);  
+ostream & operator << (ostream & o, const Vector<T> & vector);   
 
 //template <class T>
 //Matrix<T> operator * (const Matrix<T> & matrix, const Vector<T> & vector);

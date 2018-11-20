@@ -42,6 +42,9 @@
     <ClCompile Include="VectorOperations.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="VectorFunctions.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.h">
