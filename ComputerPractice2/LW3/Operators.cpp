@@ -91,7 +91,7 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> other) {
 }
 
 template<class T>
-Matrix<T> Matrix<T>::operator ^ (const Matrix<T> other) {
+Matrix<T> Matrix<T>::operator & (const Matrix<T> other) {
 	if (m != other.m || n != other.n) {
 		throw HadamarMatricesException();
 	}

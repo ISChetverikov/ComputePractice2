@@ -4,6 +4,7 @@
 using namespace std;
 
 class MultiplicationMatricesException : public exception {
+public:
 	const char * what() const throw ()
 	{
 		return "These matrices are not suitable for multiplication";
@@ -11,6 +12,7 @@ class MultiplicationMatricesException : public exception {
 };
 
 class AdditionMatricesException : public exception {
+public:
 	const char * what() const throw ()
 	{
 		return "These matrices are not suitable for addition";
@@ -18,8 +20,17 @@ class AdditionMatricesException : public exception {
 };
 
 class HadamarMatricesException : public exception {
+public:
 	const char * what() const throw ()
 	{
 		return "These matrices are not suitable for Hadamar mutliplication";
+	}
+};
+
+class VectorsDiffDimensionException : public exception {
+public:
+	const char * what() const throw ()
+	{
+		return "These vectors have different sizes";
 	}
 };

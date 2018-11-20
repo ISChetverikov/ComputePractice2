@@ -1,5 +1,6 @@
 #include <vector>
 #include "Matrix.h"
+#include "Vector.h"
 #include "DerivedMatrix.h"
 
 #include "exception.h"
@@ -159,6 +160,14 @@ Column<T>::Column(int m, T * coefs) {
 }
 
 template <class T>
+Column<T>::Column(const Vector<T> & _vector) : Matrix<T>(_vector.Size(), 1, false){
+	for (int i = 0; i < m; i++)
+	{
+		v[i][0] = _vector[i];
+	}
+}
+
+template <class T>
 void Column<T>::RandomFill() {
 	for (int i = 0; i < m; i++)
 	{
@@ -181,6 +190,14 @@ Row<T>::Row(int n, T * coefs) {
 	for (int i = 0; i < n; i++)
 	{
 		v[0][n] = coefs[i];
+	}
+}
+
+template <class T>
+Row<T>::Row(const Vector<T> & _vector) : Matrix<T>(1, _vector.Size(), false){
+	for (int i = 0; i < n; i++)
+	{
+		v[0][i] = _vector[i];
 	}
 }
 

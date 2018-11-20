@@ -5,6 +5,7 @@
 #include <iomanip>  
 #include <sstream>
 #include "Matrix.h"
+#include "Vector.h"
 
 #include "exception.h"
 
@@ -29,6 +30,13 @@ string Matrix<T>::toString() const {
 template <class T>
 ostream & operator << (ostream & o, const Matrix<T> & matrix) {
 	o << matrix.toString();
+
+	return o;
+}
+
+template <class T>
+ostream & operator << (ostream & o, const Vector<T> & vector) {
+	o << vector.ToMatrix(true);
 
 	return o;
 }

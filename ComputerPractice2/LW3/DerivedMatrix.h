@@ -1,5 +1,6 @@
 #pragma once
 #include "Matrix.h"
+#include "Vector.h"
 
 template <class T>
 class UpperTriangularMatrix : public Matrix<T> {
@@ -89,7 +90,7 @@ public:
 	//////////////////////
 	Column(int m, bool isRandomFill);
 	Column(int m, T * coefs);
-
+	Column(const Vector<T> & vector);
 	void RandomFill();
 	//////////////////////
 };
@@ -105,6 +106,7 @@ public:
 	//////////////////////
 	Row(int n, bool isRandomFill);
 	Row(int n, T * coefs); 
+	Row(const Vector<T> & vector);
 
 	void RandomFill();
 	//////////////////////

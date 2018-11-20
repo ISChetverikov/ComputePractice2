@@ -118,16 +118,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Functions.cpp" />
     <ClCompile Include="IO.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Operators.cpp" />
     <ClCompile Include="DerivedMatrix.cpp" />
     <ClCompile Include="DerivedMatrix.h" />
+    <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="VectorOperations.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="exception.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

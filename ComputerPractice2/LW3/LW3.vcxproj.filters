@@ -33,12 +33,24 @@
     <ClCompile Include="DerivedMatrix.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
+    <ClCompile Include="Functions.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorOperations.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="exception.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

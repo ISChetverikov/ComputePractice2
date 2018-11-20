@@ -29,8 +29,13 @@ public:
 	Matrix operator + (const Matrix other);
 	Matrix operator - (const Matrix other);  
 	Matrix operator * (const Matrix other);
-	Matrix operator ^ (const Matrix other);// Hadamar production
+	Matrix operator & (const Matrix other);// Hadamar production
 	///////////////////////////////////////
+
+	// Functions.cpp
+	//////////////////////////////////////
+	T Trace(); 
+	//////////////////////////////////////
 
 	// IO.cpp
 	string toString() const;
@@ -40,5 +45,5 @@ public:
 // IO.cpp
 /////////////////////////////////////////
 template <class T>
-ostream & operator << (ostream & o, const Matrix<T> & matrix);
+ostream & operator << (ostream & o, const Matrix<T> & matrix); 
 ///////////////////////////////////////

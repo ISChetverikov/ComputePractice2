@@ -33,7 +33,7 @@ Matrix<T>::Matrix(const Matrix<T> & other) {
 
 	for (int i = 0; i < other.m; i++)
 	{
-		v[i] = vector<T>(other.v[i]);
+		v[i] = other.v[i];
 	}
 
 	this->m = other.m;
