@@ -36,3 +36,63 @@ double Matrix<T>::Norm() {
 
 	return sqrt(norm);
 }
+
+template <class T>
+double Matrix<T>::Determinant() {
+	double d = 1;
+	
+	if (n != m)
+		throw NotSquareMatrixException();
+
+	Matrix<double> form = EchelonForm();
+	for (int i = 0; i < n; i++)
+	{
+		d *= form[i][i];
+	}
+	return d;
+}
+
+template <class T>
+Matrix<double> Matrix<T>::EchelonForm() {
+	Matrix<double> res = (Matrix<double>)(*this);
+	vector<double> temp;
+	double r = 0;
+	
+	int min = (n > m) ? m : n;
+	int rank = 0;
+
+	for (int k = 0; k < min; k++)
+	{
+		int notNullIndex = rank;
+
+		for (; notNullIndex < m; notNullIndex++) {
+			//double a = res[notNullIndex][k];
+			if (res[notNullIndex][k] != 0)
+				break;
+		}
+			
+
+		if (notNullIndex == m)
+			continue;
+
+		if (notNullIndex != rank) {
+			temp = res[notNullIndex];
+			res[notNullIndex] = res[rank];
+			res[rank] = temp;
+		}
+			
+		for (int i = rank + 1; i < m; i++) {
+			if (res[i][k] == 0)
+				continue;
+
+			r = res[i][k] / res[rank][k];
+			for (int j = k; j < n; j++){
+				res[i][j] -= r * res[rank][j];
+			}
+		}
+			
+		rank++;
+	}
+
+	return res;
+}

@@ -21,9 +21,11 @@ using namespace std;
 int main() {
 	
 	//srand((int)time(0));
-
-	Matrix<int> m = Matrix<int>(2, 3, true);
-	Matrix<double> n = Matrix<double>(3, 4, true);
+	int Array[3][3] ={	{0,0,1},
+						{1,0,0},
+						{0,1,0} };
+	Matrix<int> m = Matrix<int>(3, 3, (int *)Array);
+	Matrix<int> n = Matrix<int>(3, 4, true);
 	//SymmetricMatrix<double> u = SymmetricMatrix<double>(3, true);
 	//SymmetricMatrix<double> v = SymmetricMatrix<double>(u);
 	DiagonalMatrix<double> d = DiagonalMatrix<double>(3, true);
@@ -38,8 +40,8 @@ int main() {
 	//cout << r << endl;
 	//cout << (u & d);
 	cout << (Matrix<double>)m << endl;
-	cout << n << endl;
-	cout << m * n << endl;
+	cout << m.Determinant() << endl;
+	//cout << ((double)0 != 0) << endl;
 	/*try {
 		cout << n * c << endl;
 	}

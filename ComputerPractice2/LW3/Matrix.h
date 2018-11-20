@@ -9,8 +9,8 @@ public:
 	// Matrix.cpp
 	//////////////////////
 	Matrix(int m, int n, bool isRandomFill);
-	Matrix(int m, int n, T * coefs);
-	Matrix(const Matrix & m);   
+	Matrix(int m, int n, T * coefs); 
+	Matrix(const Matrix & m);    
 	~Matrix();  
 
 	operator Matrix<double>() const;
@@ -31,14 +31,16 @@ public:
 	Matrix operator * (const T r) const;
 	Matrix operator + (const Matrix other);
 	Matrix operator - (const Matrix other);
-	Matrix operator * (const Matrix & other);
+	Matrix operator * (const Matrix & other); 
 	Matrix operator & (const Matrix other);// Hadamar production
 	///////////////////////////////////////
 
 	// Functions.cpp
 	//////////////////////////////////////
 	T Trace();
-	double Norm(); 
+	double Norm();
+	double Determinant();
+	Matrix<double> EchelonForm();
 	//////////////////////////////////////
 
 	// IO.cpp
@@ -50,7 +52,7 @@ template <class T, class Y>
 Matrix<double> operator * (const Matrix<T> & left, const Matrix<Y> & right);
 
 // IO.cpp
-/////////////////////////////////////////
-template <class T>
+/////////////////////////////////////////  
+template <class T> 
 ostream & operator << (ostream & o, const Matrix<T> & matrix); 
 ///////////////////////////////////////

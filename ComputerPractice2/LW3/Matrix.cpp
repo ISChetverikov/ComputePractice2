@@ -43,6 +43,8 @@ Matrix<T>::Matrix(const Matrix<T> & other) {
 template <class T>
 Matrix<T>::Matrix(int m, int n, T * coefs) {
 	v = vector<vector<T>>(m);
+	this->m = m;
+	this->n = n;
 	for (int i = 0; i < m; i++)
 	{
 		v[i] = vector<T>(n);
@@ -88,7 +90,7 @@ void Matrix<T>::RandomFill() {
 	{
 		for (int j = 0; j < n; j++)
 		{
-			v[i][j] = (T)(rand() % 10000) / 100;
+			v[i][j] = (T)(rand() % 1000) / 100;
 		}
 	}
 }

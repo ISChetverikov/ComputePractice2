@@ -34,3 +34,11 @@ public:
 		return "These vectors have different sizes";
 	}
 };
+
+class NotSquareMatrixException : public exception {
+public:
+	const char * what() const throw ()
+	{
+		return "Matrix is not a square";
+	}
+};
