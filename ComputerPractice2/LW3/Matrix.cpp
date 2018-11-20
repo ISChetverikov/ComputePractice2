@@ -59,6 +59,30 @@ Matrix<T>::~Matrix() {
 }
 
 template <class T>
+Matrix<T>::operator Matrix<double>() const {
+	Matrix<double> res = Matrix<double>(m, n, false);
+
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			res[i][j] = (double)v[i][j];
+		}
+	}
+
+	return res;
+}
+
+template <class T>
+vector<T>& Matrix<T>::operator [](int i) {
+	return v[i];
+}
+template <class T>
+const vector<T>& Matrix<T>::operator [](int i) const {
+	return v[i];
+}
+
+template <class T>
 void Matrix<T>::RandomFill() {
 	for (int i = 0; i < m; i++)
 	{

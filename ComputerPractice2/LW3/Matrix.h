@@ -13,6 +13,9 @@ public:
 	Matrix(const Matrix & m);   
 	~Matrix();  
 
+	operator Matrix<double>() const;
+	vector<T>& operator [](int i);
+	const vector<T>& operator [](int i) const;
 	void RandomFill();
 	////////////////////// 
 	  
@@ -27,8 +30,8 @@ public:
 	///////////////////////////////////////
 	Matrix operator * (const T r) const;
 	Matrix operator + (const Matrix other);
-	Matrix operator - (const Matrix other);  
-	Matrix operator * (const Matrix other);
+	Matrix operator - (const Matrix other);
+	Matrix operator * (const Matrix & other);
 	Matrix operator & (const Matrix other);// Hadamar production
 	///////////////////////////////////////
 
@@ -42,6 +45,9 @@ public:
 	string toString() const;
 	////////////////////////
 };
+
+template <class T, class Y>
+Matrix<double> operator * (const Matrix<T> & left, const Matrix<Y> & right);
 
 // IO.cpp
 /////////////////////////////////////////

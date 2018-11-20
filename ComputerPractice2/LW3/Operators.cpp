@@ -64,7 +64,7 @@ Matrix<T> Matrix<T>::operator - (const Matrix<T> other) {
 }
 
 template<class T>
-Matrix<T> Matrix<T>::operator*(const Matrix<T> other) {
+Matrix<T> Matrix<T>::operator * (const Matrix<T> & other) {
 	if (this->n != other.m) {
 		throw MultiplicationMatricesException();
 	}
@@ -106,4 +106,10 @@ Matrix<T> Matrix<T>::operator & (const Matrix<T> other) {
 	}
 
 	return res;
+}
+
+template <class T, class Y>
+Matrix<double> operator * (const Matrix<T> & left, const Matrix<Y> & right) {
+	
+	return (Matrix<double>)left * (Matrix<double>)right;
 }

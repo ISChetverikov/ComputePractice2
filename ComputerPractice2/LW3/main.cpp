@@ -22,7 +22,7 @@ int main() {
 	
 	//srand((int)time(0));
 
-	//Matrix<int> m = Matrix<int>(2, 3, true);
+	Matrix<int> m = Matrix<int>(2, 3, true);
 	Matrix<double> n = Matrix<double>(3, 4, true);
 	//SymmetricMatrix<double> u = SymmetricMatrix<double>(3, true);
 	//SymmetricMatrix<double> v = SymmetricMatrix<double>(u);
@@ -37,6 +37,9 @@ int main() {
 	//cout << c << endl;
 	//cout << r << endl;
 	//cout << (u & d);
+	cout << (Matrix<double>)m << endl;
+	cout << n << endl;
+	cout << m * n << endl;
 	/*try {
 		cout << n * c << endl;
 	}
@@ -44,13 +47,13 @@ int main() {
 		cout << e.what() << endl;
 	}
 	*/
-	int a[3] = { 1,2,3 };
+	/*int a[3] = { 1,2,3 };
 	int b[3] = { 2,3,4 };
 
 	Vector<int> v = Vector<int>(3, a);
 	Vector<int> u = Vector<int>(3, b);
 	cout << u << endl;
-	cout << (u.ToMatrix(true).Norm()) << endl;
+	cout << (u.ToMatrix(true).Norm()) << endl;*/
 	return 0;
 }
 
