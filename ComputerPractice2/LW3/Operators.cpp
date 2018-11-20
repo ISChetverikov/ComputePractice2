@@ -108,6 +108,31 @@ Matrix<T> Matrix<T>::operator & (const Matrix<T> other) {
 	return res;
 }
 
+template <class T>
+Matrix<T> Matrix<T>::operator | (const Matrix & other) {
+	if (m != other.m)
+		throw ConcatinationMatrixException();
+
+	Matrix<T> res = Matrix<T>(m, n + other.n, false);
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			res[i][j] = v[i][j];
+		}
+	}
+
+	for (int i = 0; i < m; i++)
+	{
+		for (int j = n; j < n + other.n; j++)
+		{
+			res[i][j] = other.v[i][j-n];
+		}
+	}
+
+	return res;
+}
+
 template <class T, class Y>
 Matrix<double> operator * (const Matrix<T> & left, const Matrix<Y> & right) {
 	

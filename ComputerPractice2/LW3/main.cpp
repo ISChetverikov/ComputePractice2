@@ -21,11 +21,15 @@ using namespace std;
 int main() {
 	
 	//srand((int)time(0));
-	int Array[3][3] ={	{0,0,1},
-						{1,0,0},
+	int A[3][3] ={	{1,0,1},
+						{1,1,0},
 						{0,1,0} };
-	Matrix<int> m = Matrix<int>(3, 3, (int *)Array);
-	Matrix<int> n = Matrix<int>(3, 4, true);
+	int B[3][4] = { {0,0,1,1},
+					{1,0,0,3},
+					{0,1,0,6} };
+	Matrix<int> m = Matrix<int>(3, 3, (int *)A);
+	Matrix<int> n = Matrix<int>(3, 4, (int *)B);
+
 	//SymmetricMatrix<double> u = SymmetricMatrix<double>(3, true);
 	//SymmetricMatrix<double> v = SymmetricMatrix<double>(u);
 	DiagonalMatrix<double> d = DiagonalMatrix<double>(3, true);
@@ -38,10 +42,10 @@ int main() {
 	//cout << e << endl;
 	//cout << c << endl;
 	//cout << r << endl;
-	//cout << (u & d);
-	cout << (Matrix<double>)m << endl;
-	cout << m.Determinant() << endl;
-	//cout << ((double)0 != 0) << endl;
+	cout << m.ReverseMatrix() * (Matrix<double>)m << endl;
+	/*cout << (Matrix<double>)m << endl;
+	cout << m.Rank() << endl;*/
+	
 	/*try {
 		cout << n * c << endl;
 	}
@@ -49,13 +53,13 @@ int main() {
 		cout << e.what() << endl;
 	}
 	*/
-	/*int a[3] = { 1,2,3 };
-	int b[3] = { 2,3,4 };
+	int a[3] = { -1,0,0 };
+	int b[3] = { 1,0,0 };
 
 	Vector<int> v = Vector<int>(3, a);
 	Vector<int> u = Vector<int>(3, b);
-	cout << u << endl;
-	cout << (u.ToMatrix(true).Norm()) << endl;*/
+	//cout << u << endl;
+	//cout << Vector<int>::Angle(v, u) << endl;
 	return 0;
 }
 

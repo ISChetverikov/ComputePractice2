@@ -42,3 +42,19 @@ public:
 		return "Matrix is not a square";
 	}
 };
+
+class ConcatinationMatrixException : public exception {
+public:
+	const char * what() const throw ()
+	{
+		return "Matrices are not suitable for concatination";
+	}
+};
+
+class ZeroDeterminantException : public exception {
+public:
+	const char * what() const throw ()
+	{
+		return "Determinant of Matrix is zero";
+	}
+};

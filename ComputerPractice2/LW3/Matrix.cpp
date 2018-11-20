@@ -50,7 +50,7 @@ Matrix<T>::Matrix(int m, int n, T * coefs) {
 		v[i] = vector<T>(n);
 		for (int j = 0; j < n; j++)
 		{
-			v[i][j] = coefs[i*m + j];
+			v[i][j] = coefs[i*n + j];
 		}
 	}
 }
@@ -93,4 +93,19 @@ void Matrix<T>::RandomFill() {
 			v[i][j] = (T)(rand() % 1000) / 100;
 		}
 	}
+}
+
+template <class T>
+Matrix<T> Matrix<T>::SubMatrix(int m_start, int n_start, int m_count, int n_count) {
+	Matrix<T> res = Matrix<T>(m_count, n_count, false);
+
+	for (int i = 0; i < m_count; i++)
+	{
+		for (int j = 0; j < n_count; j++)
+		{
+			res[i][j] = (*this)[i + m_start][j + n_start];
+		}
+	}
+
+	return res;
 }

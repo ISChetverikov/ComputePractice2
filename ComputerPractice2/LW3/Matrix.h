@@ -12,11 +12,12 @@ public:
 	Matrix(int m, int n, T * coefs); 
 	Matrix(const Matrix & m);    
 	~Matrix();  
-
+	  
 	operator Matrix<double>() const;
 	vector<T>& operator [](int i);
 	const vector<T>& operator [](int i) const;
 	void RandomFill();
+	Matrix<T> SubMatrix(int m_start, int n_start, int m_count, int n_count);
 	////////////////////// 
 	  
 protected:
@@ -31,8 +32,9 @@ public:
 	Matrix operator * (const T r) const;
 	Matrix operator + (const Matrix other);
 	Matrix operator - (const Matrix other);
-	Matrix operator * (const Matrix & other); 
+	Matrix operator * (const Matrix & other);  
 	Matrix operator & (const Matrix other);// Hadamar production
+	Matrix operator | (const Matrix & other);
 	///////////////////////////////////////
 
 	// Functions.cpp
@@ -40,7 +42,11 @@ public:
 	T Trace();
 	double Norm();
 	double Determinant();
+	Matrix Transpose();
+	int Rank();
+	Matrix<double> ReverseMatrix();
 	Matrix<double> EchelonForm();
+	Matrix<double> EchelonForm(int & rank);
 	//////////////////////////////////////
 
 	// IO.cpp

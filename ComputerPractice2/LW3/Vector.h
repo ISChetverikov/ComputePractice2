@@ -23,7 +23,9 @@ public:
 	T& operator [](int i);
 	const T& operator [](int i) const;
 	int Size() const;
-	Vector operator * (const T r) ;
+	static double Angle(Vector & left, Vector & right); 
+
+	Vector operator * (const T r) ; 
 	Vector operator + (const Vector & other);
 	Vector operator - (const Vector & other); 
 

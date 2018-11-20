@@ -5,6 +5,7 @@
 #include <iomanip>  
 #include <sstream>
 #include "Matrix.h"
+#include "DerivedMatrix.h"
 
 #include "exception.h"
 
@@ -53,7 +54,53 @@ double Matrix<T>::Determinant() {
 }
 
 template <class T>
+int Matrix<T>::Rank(){
+	int rank = 0;
+
+	EchelonForm(rank);
+
+	return rank;
+}
+
+template <class T>
+Matrix<double> Matrix<T>::ReverseMatrix() {
+	
+	if (Determinant() == 0)
+		throw ZeroDeterminantException();
+
+	return ((*this) | IdentityMatrix<T>(n)).EchelonForm().SubMatrix(0,n,n,n);
+}
+
+template <class T>
+Matrix<T> Matrix<T>::Transpose() {
+
+	if (n != m)
+		throw NotSquareMatrixException();
+
+	Matrix<T> res = Matrix<T>(*this);
+	T temp = 0;
+
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++)
+		{
+			temp = res.v[i][j];
+			res.v[i][j] = res.v[j][i];
+			res.v[j][i] = temp;
+		}
+	}
+	
+	return res;
+}
+
+template <class T>
 Matrix<double> Matrix<T>::EchelonForm() {
+	int rank = 0;
+
+	return EchelonForm(rank);
+}
+
+template <class T>
+Matrix<double> Matrix<T>::EchelonForm(int & _rank) {
 	Matrix<double> res = (Matrix<double>)(*this);
 	vector<double> temp;
 	double r = 0;
@@ -66,7 +113,6 @@ Matrix<double> Matrix<T>::EchelonForm() {
 		int notNullIndex = rank;
 
 		for (; notNullIndex < m; notNullIndex++) {
-			//double a = res[notNullIndex][k];
 			if (res[notNullIndex][k] != 0)
 				break;
 		}
@@ -92,6 +138,7 @@ Matrix<double> Matrix<T>::EchelonForm() {
 		}
 			
 		rank++;
+		_rank = rank;
 	}
 
 	return res;

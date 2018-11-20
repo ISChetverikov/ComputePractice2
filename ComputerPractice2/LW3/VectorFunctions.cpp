@@ -1,13 +1,10 @@
+#define _USE_MATH_DEFINES
+#include <math.h>
 #include <vector>
-#include <string>
-#include <stdlib.h>
-#include <iostream>
-#include <iomanip>  
-#include <sstream>
-#include <cmath>
-#include "Vector.h"
 
+#include "Vector.h"
 #include "exception.h"
+
 
 using namespace std;
 
@@ -35,4 +32,9 @@ T Vector<T>::NormMax() {
 	}
 
 	return norm;
+}
+
+template <class T>
+double Vector<T>::Angle(Vector<T> & left, Vector<T> & right) {
+	return acos((double)(left * right) / left.Norm2() / right.Norm2()) * 180 / M_PI;
 }
