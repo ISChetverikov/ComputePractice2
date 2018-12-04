@@ -41,4 +41,4 @@ ostream & operator << (ostream & o, const Vector<T> & vector);
 //template <class T>
 //Matrix<T> operator * (const Matrix<T> & matrix, const Vector<T> & vector);
 //template <class T>
-//Matrix<T> operator * (const Matrix<T> & matrix, const Vector<T> & vector);
+//Matrix<T> operator * (const Vector<T> & vector, const Matrix<T> & matrix);

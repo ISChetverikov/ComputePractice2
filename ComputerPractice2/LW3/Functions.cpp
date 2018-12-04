@@ -68,7 +68,7 @@ Matrix<double> Matrix<T>::ReverseMatrix() {
 	if (Determinant() == 0)
 		throw ZeroDeterminantException();
 
-	return ((*this) | IdentityMatrix<T>(n)).EchelonForm().SubMatrix(0,n,n,n);
+	return ((*this) | IdentityMatrix<T>(n)).SpecificEchelonForm().SubMatrix(0, n, n, n);
 }
 
 template <class T>
@@ -139,6 +139,50 @@ Matrix<double> Matrix<T>::EchelonForm(int & _rank) {
 			
 		rank++;
 		_rank = rank;
+	}
+
+	return res;
+}
+
+template <class T>
+Matrix<double> Matrix<T>::SpecificEchelonForm() {
+	int rank = 0;
+	Matrix<double> res = EchelonForm(rank);
+
+	if (rank == 0)
+		return res;
+
+	int notNullIndex = 0;
+	for (int i = 0; i < rank; i++)
+	{
+		cout << res << endl;
+
+
+		for (; notNullIndex < n; notNullIndex++) {
+			if (res[i][notNullIndex] != 0)
+				break;
+		}
+
+		if (n == notNullIndex)
+			break;
+
+		auto divider = res[i][notNullIndex];
+		for (int j = notNullIndex; j < n; j++)
+		{
+			res[i][j] *= 1 / divider;
+		}
+		
+		for (int k = i - 1; k >= 0; k--)
+		{
+			auto multiplier = res[k][notNullIndex];
+			for (int j = notNullIndex; j < n; j++) {	
+				
+				res[k][j] -= multiplier * res[i][j];
+				cout << res << endl;
+			}
+		}
+
+		
 	}
 
 	return res;

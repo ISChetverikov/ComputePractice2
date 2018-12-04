@@ -98,3 +98,14 @@ Matrix<T> Vector<T>::operator ^ (const Vector<T> & other) {
 
 	return a * b;
 }
+
+//template <class T>
+//Matrix<T> operator * (const Matrix<T> & matrix, const Vector<T> & vector) {
+//	Matrix<T> col = vector.ToMatrix(false);
+//	return matrix * col;
+//}
+
+//template <class T>
+//Matrix<T> operator * (const Vector<T> & vector, const Matrix<T> & matrix) {
+//	return vector.ToMatrix(true) * matrix;
+//}

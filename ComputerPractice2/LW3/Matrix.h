@@ -1,10 +1,13 @@
 #pragma once
 #include <vector>
+#include <type_traits>
+
 using namespace std;
 
-template <class T>
+template <typename T>
 class Matrix
-{
+{ 
+	static_assert(!_Is_character<T>::value, "Must be not a char type!");
 public:
 	// Matrix.cpp
 	//////////////////////
@@ -12,7 +15,8 @@ public:
 	Matrix(int m, int n, T * coefs); 
 	Matrix(const Matrix & m);    
 	~Matrix();  
-	  
+	 
+	
 	operator Matrix<double>() const;
 	vector<T>& operator [](int i);
 	const vector<T>& operator [](int i) const;
@@ -29,11 +33,11 @@ public:
 
 	// Operators.cpp
 	///////////////////////////////////////
-	Matrix operator * (const T r) const;
+	Matrix operator * (const Matrix & other);
+	Matrix operator * (const double r) const;
 	Matrix operator + (const Matrix other);
 	Matrix operator - (const Matrix other);
-	Matrix operator * (const Matrix & other);  
-	Matrix operator & (const Matrix other);// Hadamar production
+	Matrix operator % (const Matrix other);// Hadamar production
 	Matrix operator | (const Matrix & other);
 	///////////////////////////////////////
 
@@ -41,24 +45,25 @@ public:
 	//////////////////////////////////////
 	T Trace();
 	double Norm();
-	double Determinant();
+	double Determinant(); 
 	Matrix Transpose();
 	int Rank();
 	Matrix<double> ReverseMatrix();
 	Matrix<double> EchelonForm();
-	Matrix<double> EchelonForm(int & rank);
+	Matrix<double> SpecificEchelonForm();  
+	Matrix<double> EchelonForm(int & rank); 
 	//////////////////////////////////////
 
-	// IO.cpp
+	// IO.cpp 
 	string toString() const;
 	////////////////////////
 };
 
-template <class T, class Y>
+template <class T, class Y> 
 Matrix<double> operator * (const Matrix<T> & left, const Matrix<Y> & right);
 
-// IO.cpp
+// IO.cpp 
 /////////////////////////////////////////  
 template <class T> 
-ostream & operator << (ostream & o, const Matrix<T> & matrix); 
+ostream & operator << (ostream & o, const Matrix<T> & matrix);  
 ///////////////////////////////////////

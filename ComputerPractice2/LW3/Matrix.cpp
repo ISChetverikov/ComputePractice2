@@ -4,14 +4,18 @@
 #include <iostream>
 #include <iomanip>  
 #include <sstream>
+#include <type_traits>
 #include "Matrix.h"
 
 #include "exception.h"
 
+
 using namespace std;
 
-template <class T>
+template<class T>
 Matrix<T>::Matrix(int m, int n, bool isRandomFill) {
+	//static_assert(std::_Is_character<T, char>::value, "Template is character!");
+
 	v = vector<vector<T>>(m);
 	for (int i = 0; i < m; i++)
 	{
