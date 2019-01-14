@@ -24,6 +24,14 @@ Vector<T>::Vector(int n, T * coefs) {
 }
 
 template <class T>
+Vector<T>::Vector(vector<T> & coefs) {
+    v = coefs;
+
+    this->n = coefs.size();
+}
+
+
+template <class T>
 void Vector<T>::RandomFill() {
 	for (int i = 0; i < n; i++)
 	{

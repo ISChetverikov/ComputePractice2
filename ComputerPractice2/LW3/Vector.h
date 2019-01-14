@@ -14,6 +14,8 @@ protected:
 public:
 	Vector(int n, bool isRandomFill);
 	Vector(int n, T * coefs);
+    Vector(vector<T> & coefs);
+    Vector() = default;
 	void RandomFill();
 
 	Matrix<T> ToMatrix(bool isRaw) const;
@@ -33,10 +35,18 @@ public:
 	Vector operator & (const Vector & other); // Hadamar
 	Matrix<T> operator ^ (const Vector & other); // External
 
+    // IO.cpp 
+    string toString() const;
+    static Vector<T> ReadFromFile(std::string filename);
+    static void WriteToFile(std::string filename, const Vector<T> & matrix);
+    ////////////////////////
 };
 
 template <class T>
 ostream & operator << (ostream & o, const Vector<T> & vector);   
+
+template <class T>
+istream & operator >> (istream & in, const Vector<T> & vector);
 
 //template <class T>
 //Matrix<T> operator * (const Matrix<T> & matrix, const Vector<T> & vector);

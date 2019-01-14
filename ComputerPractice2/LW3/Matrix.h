@@ -59,6 +59,8 @@ public:
 
 	// IO.cpp 
 	string toString() const;
+    static Matrix<T> ReadFromFile(std::string filename);
+    static void WriteToFile(std::string filename, const Matrix<T> & matrix);
 	////////////////////////
 };
 

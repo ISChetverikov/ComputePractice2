@@ -87,7 +87,10 @@ int main() {
 	//}
 
 	//cout << (m1 % m1) << endl;
-    auto m = Matrix<double>(3, 4, true);
+
+    ////////////////////////////////////////////////////////////////
+    // text
+    /*auto m = Matrix<double>(3, 4, true);
     std::cout << m;
 
     std::ofstream out;     
@@ -104,8 +107,50 @@ int main() {
     if (in.is_open()) {
         in >> m2;
     }
-    
-    std::cout << m2;
+    in.close();
 
-	return 0;
+    std::cout << m2;*/
+    ////////////////////////////////////////
+    // binary
+   /* auto mb = Matrix<double>(3, 4, true);
+    std::cout << mb;
+
+    Matrix<double>::WriteToFile("testb.bin", mb);
+
+    auto mb2 = Matrix<double>::ReadFromFile("testb.bin");
+    std::cout << mb2;
+
+	return 0;*/
+    ////////////////////////////////////////////////////////////////
+    // text
+    auto v = Vector<double>(4, true);
+    std::cout << v;
+
+    std::ofstream out;
+    out.open("testv.txt");
+    if (out.is_open())
+    {
+        out << v << std::endl;
+    }
+    out.close();
+
+    Vector<double> v2;
+    std::ifstream in;
+    in.open("testv.txt");
+    if (in.is_open()) {
+        in >> v2;
+    }
+    in.close();
+
+    std::cout << v2;
+    ////////////////////////////////////////
+    // binary
+    /*auto vb = Vector<double>(4, true);
+    std::cout << vb;
+
+    Vector<double>::WriteToFile("testvb.bin", vb);
+
+    auto vb2 = Vector<double>::ReadFromFile("testvb.bin");
+    std::cout << vb2;*/
+
 }
