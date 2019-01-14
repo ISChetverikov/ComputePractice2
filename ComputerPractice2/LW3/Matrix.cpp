@@ -32,6 +32,14 @@ Matrix<T>::Matrix(int m, int n, bool isRandomFill) {
 }
 
 template <class T>
+Matrix<T>::Matrix(vector<vector<T>> & coefs) {
+    v = coefs;
+
+    this->m = coefs.size();
+    this->n = coefs[0].size();
+}
+
+template <class T>
 Matrix<T>::Matrix(const Matrix<T> & other) {
 	v = vector<vector<T>>(other.m);
 

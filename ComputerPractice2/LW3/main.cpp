@@ -2,6 +2,8 @@
 #include <string>
 #include <array>
 #include <time.h>
+#include <fstream>
+#include <stdio.h>
 
 #include "Matrix.h"
 #include "DerivedMatrix.h"
@@ -24,7 +26,7 @@ int main() {
 	//int A[2][2] ={	{'a','b'},
 	//					{'c','d'} };
 	
-	int A1[3][3] = {{0,2,1},
+	/*int A1[3][3] = {{0,2,1},
 					{3,4,5},
 					{4,1,1}};
 
@@ -38,7 +40,7 @@ int main() {
 
 	Matrix<int> m = Matrix<int>(3, 3, (int *)A);
 	Matrix<int> m1 = Matrix<int>(3, 3, (int *)A1);
-	Matrix<int> n = Matrix<int>(3, 4, (int *)B);
+	Matrix<int> n = Matrix<int>(3, 4, (int *)B);*/
 	//Matrix<char> c = Matrix<char>(3,2, true);
 
 	//SymmetricMatrix<double> u = SymmetricMatrix<double>(3, true);
@@ -64,31 +66,46 @@ int main() {
 		cout << e.what() << endl;
 	}
 	*/
-	int a[3] = { -1,0,0 };
+	/*int a[3] = { -1,0,0 };
 	int b[3] = { 1,2,3 };
 
 	Vector<int> v = Vector<int>(3, a);
-	Vector<int> u = Vector<int>(3, b);
+	Vector<int> u = Vector<int>(3, b);*/
 	//cout << u << endl;
 	//cout << Vector<int>::Angle(v, u) << endl;
 	//cout << m1.Norm() << endl;
 	//cout << n.SpecificEchelonForm() << endl;
 	//cout << n << endl;
-	try {
-		auto m2 = (Matrix<double>)m1 * m1.ReverseMatrix();
-		cout << m2 << endl;
-		cout << m * v.ToMatrix(false) << endl;
-	}
-	catch (exception e) {
-		cout << e.what() << endl;
-	}
-
+	//try {
+	//	auto m2 = (Matrix<double>)m1 * m1.ReverseMatrix();
+	//	cout << m1.Rank() << endl;
+	//	cout << m2 << endl;
+	//	//cout << m * v.ToMatrix(false) << endl;
+	//}
+	//catch (exception e) {
+	//	cout << e.what() << endl;
+	//}
 
 	//cout << (m1 % m1) << endl;
-	
+    auto m = Matrix<double>(3, 4, true);
+    std::cout << m;
+
+    std::ofstream out;     
+    out.open("test.txt");
+    if (out.is_open())
+    {
+        out << m << std::endl;
+    }
+    out.close();
+
+    Matrix<double> m2;
+    std::ifstream in;
+    in.open("test.txt");
+    if (in.is_open()) {
+        in >> m2;
+    }
+    
+    std::cout << m2;
+
 	return 0;
 }
-
-// ?????????????????????????
-// Использование с шаблонами
-// Специализация функций из шаблонного класса

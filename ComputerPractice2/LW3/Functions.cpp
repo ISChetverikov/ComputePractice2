@@ -155,9 +155,6 @@ Matrix<double> Matrix<T>::SpecificEchelonForm() {
 	int notNullIndex = 0;
 	for (int i = 0; i < rank; i++)
 	{
-		cout << res << endl;
-
-
 		for (; notNullIndex < n; notNullIndex++) {
 			if (res[i][notNullIndex] != 0)
 				break;
@@ -178,7 +175,7 @@ Matrix<double> Matrix<T>::SpecificEchelonForm() {
 			for (int j = notNullIndex; j < n; j++) {	
 				
 				res[k][j] -= multiplier * res[i][j];
-				cout << res << endl;
+				//cout << res << endl;
 			}
 		}
 

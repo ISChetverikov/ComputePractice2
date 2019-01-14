@@ -58,3 +58,11 @@ public:
 		return "Determinant of Matrix is zero";
 	}
 };
+
+class DifferentRawsOfInputMatrixException : public exception {
+public:
+    const char * what() const throw ()
+    {
+        return "Input Matrix has different elements count of raws";
+    }
+};
