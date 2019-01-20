@@ -31,7 +31,7 @@ public:
 	Vector operator + (const Vector & other);
 	Vector operator - (const Vector & other); 
 
-	T operator * (const Vector & other); // Scalar
+	T operator * (const Vector & other); // Scalar 
 	Vector operator & (const Vector & other); // Hadamar
 	Matrix<T> operator ^ (const Vector & other); // External
 

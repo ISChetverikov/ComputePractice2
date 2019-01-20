@@ -55,7 +55,7 @@ public:
 	Matrix<double> EchelonForm();
 	Matrix<double> SpecificEchelonForm();   
 	Matrix<double> EchelonForm(int & rank); 
-	//////////////////////////////////////
+	////////////////////////////////////// 
 
 	// IO.cpp 
     string toString() const;

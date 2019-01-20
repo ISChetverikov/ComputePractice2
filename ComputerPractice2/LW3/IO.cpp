@@ -51,6 +51,8 @@ Matrix<T> Matrix<T>::ReadFromFileBinary(std::string filename) {
             }
 
     }
+    else
+        throw CanNotOpenFileException(filename);
     in.close();
 
     return matrix;
@@ -65,6 +67,8 @@ Matrix<T> Matrix<T>::ReadFromFileText(std::string filename) {
     if (in.is_open()) {
         in >> matrix;
     }
+    else
+        throw CanNotOpenFileException(filename);
     in.close();
 
     return matrix;
@@ -91,6 +95,8 @@ void Matrix<T>::WriteToFileBinary(std::string filename, const Matrix<T> & matrix
             for (int j = 0; j < matrix.n; j++)
                 out.write((char *)&matrix[i][j], sizeof(T));
     }
+    else
+        throw CanNotOpenFileException(filename);
 
     out.close();
 }
@@ -104,6 +110,8 @@ void Matrix<T>::WriteToFileText(std::string filename, const Matrix<T> & matrix) 
     {
         out << matrix;
     }
+    else
+        throw CanNotOpenFileException(filename);
     out.close();
 }
 
@@ -176,6 +184,8 @@ Vector<T> Vector<T>::ReadFromFileBinary(std::string filename) {
             vector[i] = temp;
         }
     }
+    else
+        throw CanNotOpenFileException(filename);
     in.close();
 
     return vector;
@@ -190,6 +200,8 @@ Vector<T> Vector<T>::ReadFromFileText(std::string filename) {
     if (in.is_open()) {
         in >> vector;
     }
+    else
+        throw CanNotOpenFileException(filename);
     in.close();
 
     return vector;
@@ -213,6 +225,8 @@ void Vector<T>::WriteToFileBinary(std::string filename, const Vector<T> & vector
         for (int i = 0; i < vector.n; i++)
             out.write((char *)&vector[i], sizeof(T));
     }
+    else
+        throw CanNotOpenFileException(filename);
 
     out.close();
 }
@@ -226,6 +240,8 @@ void Vector<T>::WriteToFileText(std::string filename, const Vector<T> & vector) 
     {
         out << vector;
     }
+    else
+        throw CanNotOpenFileException(filename);
     out.close();
 }
 

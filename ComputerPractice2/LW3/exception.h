@@ -66,3 +66,18 @@ public:
         return "Input Matrix has different elements count of raws";
     }
 };
+
+class CanNotOpenFileException : public exception {
+private:
+    std::string _filename;
+
+public:
+    CanNotOpenFileException(std::string filename) {
+        _filename = filename;
+    }
+
+    const char * what() const throw ()
+    {
+        return ("Cannot open file " + _filename).c_str();
+    }
+};
