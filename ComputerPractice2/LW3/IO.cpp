@@ -30,8 +30,8 @@ string Matrix<T>::toString() const {
 }
 
 template <class T>
-Matrix<T> Matrix<T>::ReadFromFile(std::string filename) {
-    Matrix<double> matrix;
+Matrix<T> Matrix<T>::ReadFromFileBinary(std::string filename) {
+    Matrix<T> matrix;
     int m = 0;
     int n = 0;
     T temp;
@@ -49,7 +49,7 @@ Matrix<T> Matrix<T>::ReadFromFile(std::string filename) {
                 in.read((char *)&temp, sizeof(T));
                 matrix[i][j] = temp;
             }
-                
+
     }
     in.close();
 
@@ -57,11 +57,33 @@ Matrix<T> Matrix<T>::ReadFromFile(std::string filename) {
 }
 
 template <class T>
-void Matrix<T>::WriteToFile(std::string filename, const Matrix<T> & matrix) {
-    
+Matrix<T> Matrix<T>::ReadFromFileText(std::string filename) {
+    Matrix<T> matrix;
+    std::ifstream in;
+
+    in.open(filename);
+    if (in.is_open()) {
+        in >> matrix;
+    }
+    in.close();
+
+    return matrix;
+}
+
+template <class T>
+Matrix<T> Matrix<T>::ReadFromFile(std::string filename, bool isBinaryMode) {
+    if (isBinaryMode)
+        return ReadFromFileBinary(filename);
+    else
+        return ReadFromFileText(filename);
+}
+
+template <class T>
+void Matrix<T>::WriteToFileBinary(std::string filename, const Matrix<T> & matrix) {
+
     std::ofstream out;
     out.open(filename, std::fstream::out | std::fstream::binary | std::fstream::trunc);
-    if (out.is_open()){
+    if (out.is_open()) {
         out.write((char *)&matrix.m, sizeof(int));
         out.write((char *)&matrix.n, sizeof(int));
 
@@ -73,6 +95,26 @@ void Matrix<T>::WriteToFile(std::string filename, const Matrix<T> & matrix) {
     out.close();
 }
 
+template <class T>
+void Matrix<T>::WriteToFileText(std::string filename, const Matrix<T> & matrix) {
+
+    std::ofstream out;
+    out.open(filename);
+    if (out.is_open())
+    {
+        out << matrix;
+    }
+    out.close();
+}
+
+template <class T>
+void Matrix<T>::WriteToFile(std::string filename, const Matrix<T> & matrix, bool isBinaryMode) {
+    
+    if (isBinaryMode)
+        WriteToFileBinary(filename, matrix);
+    else
+        WriteToFileText(filename, matrix);
+}
 
 template <class T>
 ostream & operator << (ostream & o, const Matrix<T> & matrix) {
@@ -117,7 +159,7 @@ std::istream& operator >> (std::istream& in, Matrix<T> & matrix) {
 // Vector IO
 
 template <class T>
-Vector<T> Vector<T>::ReadFromFile(std::string filename) {
+Vector<T> Vector<T>::ReadFromFileBinary(std::string filename) {
     Vector<double> vector;
     int n = 0;
     T temp;
@@ -140,8 +182,29 @@ Vector<T> Vector<T>::ReadFromFile(std::string filename) {
 }
 
 template <class T>
-void Vector<T>::WriteToFile(std::string filename, const Vector<T> & vector) {
+Vector<T> Vector<T>::ReadFromFileText(std::string filename) {
+    Vector<T> vector;
+    std::ifstream in;
 
+    in.open(filename);
+    if (in.is_open()) {
+        in >> vector;
+    }
+    in.close();
+
+    return vector;
+}
+
+template <class T>
+Vector<T> Vector<T>::ReadFromFile(std::string filename, bool isBinaryMode) {
+    if (isBinaryMode)
+        return ReadFromFileBinary(filename);
+    else
+        return ReadFromFileText(filename);
+}
+
+template <class T>
+void Vector<T>::WriteToFileBinary(std::string filename, const Vector<T> & vector) {
     std::ofstream out;
     out.open(filename, std::fstream::out | std::fstream::binary | std::fstream::trunc);
     if (out.is_open()) {
@@ -152,6 +215,27 @@ void Vector<T>::WriteToFile(std::string filename, const Vector<T> & vector) {
     }
 
     out.close();
+}
+
+template <class T>
+void Vector<T>::WriteToFileText(std::string filename, const Vector<T> & vector) {
+
+    std::ofstream out;
+    out.open(filename);
+    if (out.is_open())
+    {
+        out << vector;
+    }
+    out.close();
+}
+
+template <class T>
+void Vector<T>::WriteToFile(std::string filename, const Vector<T> & vector, bool isBinaryMode) {
+
+    if (isBinaryMode)
+        WriteToFileBinary(filename, vector);
+    else
+        WriteToFileText(filename, vector);
 }
 
 template <class T>

@@ -53,14 +53,21 @@ public:
 	int Rank();
 	Matrix<double> ReverseMatrix();
 	Matrix<double> EchelonForm();
-	Matrix<double> SpecificEchelonForm();  
+	Matrix<double> SpecificEchelonForm();   
 	Matrix<double> EchelonForm(int & rank); 
 	//////////////////////////////////////
 
 	// IO.cpp 
-	string toString() const;
-    static Matrix<T> ReadFromFile(std::string filename);
-    static void WriteToFile(std::string filename, const Matrix<T> & matrix);
+    string toString() const;
+    static Matrix<T> ReadFromFile(std::string filename, bool isBinaryMode = false);
+    static void WriteToFile(std::string filename, const Matrix<T> & matrix, bool isBinaryMode = false);
+
+private:
+    static Matrix<T> ReadFromFileBinary(std::string filename);
+    static Matrix<T> ReadFromFileText(std::string filename);
+    static void WriteToFileBinary(std::string filename, const Matrix<T> & matrix);
+    static void WriteToFileText(std::string filename, const Matrix<T> & matrix);
+
 	////////////////////////
 };
 

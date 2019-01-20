@@ -37,8 +37,14 @@ public:
 
     // IO.cpp 
     string toString() const;
-    static Vector<T> ReadFromFile(std::string filename);
-    static void WriteToFile(std::string filename, const Vector<T> & matrix);
+    static Vector<T> ReadFromFile(std::string filename, bool isBinaryMode = false);
+    static void WriteToFile(std::string filename, const Vector<T> & matrix, bool isBinaryMode = false);
+
+private:
+    static Vector<T> ReadFromFileBinary(std::string filename);
+    static Vector<T> ReadFromFileText(std::string filename);
+    static void WriteToFileBinary(std::string filename, const Vector<T> & matrix);
+    static void WriteToFileText(std::string filename, const Vector<T> & matrix);
     ////////////////////////
 };
 
