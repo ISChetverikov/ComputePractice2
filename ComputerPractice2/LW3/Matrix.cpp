@@ -121,3 +121,13 @@ Matrix<T> Matrix<T>::SubMatrix(int m_start, int n_start, int m_count, int n_coun
 
 	return res;
 }
+
+template <class T>
+int Matrix<T>::GetM() const {
+    return m;
+}
+
+template <class T>
+int Matrix<T>::GetN() const {
+    return n;
+}

@@ -84,7 +84,7 @@ Matrix<T> Matrix<T>::operator - (const Matrix<T> other) {
 	{
 		for (int j = 0; j < n; j++)
 		{
-			res.v[i][j] -= other.v[i][j];
+			res.v[i][j] = this->v[i][j] - other.v[i][j];
 		}
 	}
 

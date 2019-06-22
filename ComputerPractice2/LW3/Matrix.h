@@ -25,6 +25,8 @@ public:
 	const vector<T>& operator [](int i) const;
 	void RandomFill();
 	Matrix<T> SubMatrix(int m_start, int n_start, int m_count, int n_count);
+    int GetM() const;
+    int GetN() const;
 	////////////////////// 
 	  
 protected:

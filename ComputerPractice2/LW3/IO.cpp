@@ -143,6 +143,8 @@ std::istream& operator >> (std::istream& in, Matrix<T> & matrix) {
         istringstream iss(str);
         std::vector<T> row;
 
+		iss.imbue(locale("Russian"));
+
         int current_n = 0;
         while (iss >> temp) {
             current_n++;

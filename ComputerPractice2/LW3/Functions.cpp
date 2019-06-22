@@ -74,18 +74,18 @@ Matrix<double> Matrix<T>::ReverseMatrix() {
 template <class T>
 Matrix<T> Matrix<T>::Transpose() {
 
-	if (n != m)
-		throw NotSquareMatrixException();
-
-	Matrix<T> res = Matrix<T>(*this);
+	//Matrix<T> res = Matrix<T>(*this);
+	Matrix<T> res = Matrix(n, m, false);
 	T temp = 0;
 
-	for (int i = 0; i < n; i++) {
-		for (int j = i + 1; j < n; j++)
+	// old dimensionis
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++)
 		{
-			temp = res.v[i][j];
-			res.v[i][j] = res.v[j][i];
-			res.v[j][i] = temp;
+			res.v[j][i] = this->v[i][j];
+			//temp = res.v[i][j];
+			//res.v[i][j] = res.v[j][i];
+			//res.v[j][i] = temp;
 		}
 	}
 	

@@ -89,17 +89,18 @@ int main() {
 	//cout << (m1 % m1) << endl;
 
     auto filename = "test1.txt";
+    auto filename2 = "test.bin";
     ////////////////////////////////////////////////////////////////
-    /*auto m = Matrix<double>(3, 4, true);
+    auto m = Matrix<double>(3, 4, true);
     std::cout << m << std::endl;
 
-    Matrix<double>::WriteToFile(filename, m, true);
-    std::cout << Matrix<double>::ReadFromFile(filename, true) << std::endl;*/
+    Matrix<double>::WriteToFile(filename2, m, true);
+    std::cout << Matrix<double>::ReadFromFile(filename2, true) << std::endl;
 
     ////////////////////////////////////////
     auto v = Vector<double>(4, true);
     std::cout << v << std::endl;
 
-    //Vector<double>::WriteToFile(filename, v, true);
-    std::cout << Vector<double>::ReadFromFile(filename, true) << std::endl;
+    Vector<double>::WriteToFile(filename, v);
+    std::cout << Vector<double>::ReadFromFile(filename) << std::endl;
 }
